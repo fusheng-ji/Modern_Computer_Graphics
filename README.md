@@ -1,3 +1,7 @@
+---
+typora-root-url: picture
+---
+
 
 
 # Modern Graphics
