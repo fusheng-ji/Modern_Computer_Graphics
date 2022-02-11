@@ -20,8 +20,8 @@ Class link： https://sites.cs.ucsb.edu/~lingqi/teaching/games101.html
   - [scale matrix](#scale-matrix)
   - [reflection matrix](#reflection-matrix)
   - [shear matrix](#shear-matrix)
-  - [rotate (about the origin (0,0), CCW by default)](#rotate-about-the-origin-(0,0)-ccw-by-default)
-  - []()
+  - [rotate](#rotate)
+  - [linear transforms](#linear-transforms)
   - []()
   - []()
   - []()
@@ -36,6 +36,10 @@ Class link： https://sites.cs.ucsb.edu/~lingqi/teaching/games101.html
 - [Cameras, Lenses and Light Fields](#cameras-lenses-and-light-fields)
 - [Animation](#animation)
 - [Simulation](#simulation)
+  - [Single particle simulation](#single-particle-simulation)
+    - [Combating Instability](#combating-instability)
+  - [Rigid body simulation](#rigid-body-simulation)
+  - [Fluid simulation](#fluid-simulation)
 
 ## Course Topics
 
@@ -185,13 +189,17 @@ $$\begin{bmatrix}x'\\y'\end{bmatrix}=\begin{bmatrix}-1&0\\0&1\end{bmatrix}\begin
 
 $$\begin{bmatrix}x'\\y'\end{bmatrix}=\begin{bmatrix}1&a\\0&1\end{bmatrix}\begin{bmatrix}x\\y\end{bmatrix}$$
 
-### rotate (about the origin (0,0), CCW by default)
+### rotate 
+
+**about the origin (0,0), CCW by default**
 
 $$R_\theta=\begin{bmatrix}cos\theta&-sin\theta\\sin\theta&cos\theta\end{bmatrix}$$
 
 $$R_{-\theta}=\begin{bmatrix}cos\theta&sin\theta\\-sin\theta&cos\theta\end{bmatrix}=R^T_\theta=R^{-1}_\theta$$
 
-### linear transforms = matrix (of the same dimension)
+### linear transforms
+
+**linear transforms = matrix (of the same dimension)**
 
 $$x'=Mx$$
 
