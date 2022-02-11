@@ -10,6 +10,32 @@ Class link： https://sites.cs.ucsb.edu/~lingqi/teaching/games101.html
 
 - [Course Topics](#course-topics)
   - [Relations between computer graphics and computer vision?](#relations-between-computer-graphics-and-computer-vision)
+- [A Swift and Brutal Introduction to Linear Algebra](#a-swift-and-brutal-introduction-to-linear-algebra)
+  - [Graphics' Dependencies](#graphics'-dependencies)
+  - [Vectors](#vectors)
+    - [Vector Normalization](#vector-normalization)
+    - [Vector Addition](#vector-addition)
+    - [Vector Multiplication](#vector-multiplication)
+- [Transformation](#transformation)
+  - [scale matrix](#scale-matrix)
+  - [reflection matrix](#reflection-matrix)
+  - [shear matrix](#shear-matrix)
+  - [rotate (about the origin (0,0), CCW by default)](#rotate-(about-the-origin (0,0), CCW by default))
+  - []()
+  - []()
+  - []()
+  - []()
+  - []()
+  - []()
+- [Rasterization](#rasterzation)
+- [Shading](#shading)
+- [Geometry](#geometry)
+- [Ray Tracing](#ray-tracing)
+- [Materials and Appearances](#materials-and-appearances)
+- [Advanced Appearance Modeling](#advanced-appearance-modeling)
+- [Cameras, Lenses and Light Fields](#cameras-lenses-and-light-fields)
+- [Animation](#animation)
+- [Simulation](#simulation)
 
 ## Course Topics
 
@@ -271,10 +297,6 @@ $\begin{pmatrix}x'\\y'\\z'\\1\end{pmatrix}=\begin{pmatrix}a&b&c&t_x\\d&e&f&t_y\\
 #### what's the order?
 
 linear first, then translation
-
-## Transformation Cont.
-
-### 3D transformations
 
 #### scale
 
