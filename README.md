@@ -1,19 +1,15 @@
----
-typora-root-url: picture
----
-
 # Modern Graphics
 
 It's a notebook of games-101 which is instructed by Lingqi Yan
 
 ![微信截图_20220212021425](picture/微信截图_20220212021425.png)
 
-class link https://sites.cs.ucsb.edu/~lingqi/teaching/games101.html
+Class link： https://sites.cs.ucsb.edu/~lingqi/teaching/games101.html
 
 ## Contents
 
 - [Course Topics](#course-topics)
-  - [Relations between computer graphics and computer vision?](#relations-between-computer-graphics-and-computer-vision?)
+  - [Relations between computer graphics and computer vision?](#relations-between-computer-graphics-and-computer-vision)
 
 ## Course Topics
 
