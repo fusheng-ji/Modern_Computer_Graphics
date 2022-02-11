@@ -20,7 +20,7 @@ Class link： https://sites.cs.ucsb.edu/~lingqi/teaching/games101.html
   - [scale matrix](#scale-matrix)
   - [reflection matrix](#reflection-matrix)
   - [shear matrix](#shear-matrix)
-  - [rotate (about the origin (0,0), CCW by default)](#rotate-(about-the-origin (0,0), CCW by default))
+  - [rotate (about the origin (0,0), CCW by default)](#rotate-about-the-origin-0-0-ccw-by-default)
   - []()
   - []()
   - []()
