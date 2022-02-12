@@ -33,7 +33,7 @@ Class link： https://sites.cs.ucsb.edu/~lingqi/teaching/games101.html
     - [transform ordering matters](#transform-ordering-matters)
     - [sequence of affine transforms](#sequence-of-affine-transforms)
   - [Decomposing complex transforms](#decomposing-complex-transforms)
-    - [Example: How to rotate around a given point c?](#example-:-how-to-rotate-around-a-given-point-c)
+    - [Example: How to rotate around a given point?](#example-:-how-to-rotate-around-a-given-point)
     - [matrix representation](#matrix-representation)
   - [3D transformations](#3d-transformations)
     - [Using homogeneous coordinates again](#using-homogeneous-coordinates-again)
@@ -449,7 +449,7 @@ $$T(t_x,t_y)=\begin{pmatrix}1&0&t_x\\0&1&t_y\\0&0&1\end{pmatrix}$$
 
 ### Decomposing complex transforms
 
-#### Example : How to rotate around a given point c?
+#### Example : How to rotate around a given point?
 
 - translate center to origin
 - rotate
