@@ -1,4 +1,4 @@
-# Modern Graphics
+# Modern Computer Graphics
 
 It's a notebook of games-101 which is instructed by Lingqi Yan
 
@@ -22,19 +22,189 @@ Class link： https://sites.cs.ucsb.edu/~lingqi/teaching/games101.html
   - [shear matrix](#shear-matrix)
   - [rotate](#rotate)
   - [linear transforms](#linear-transforms)
-  - []()
-  - []()
-  - []()
-  - []()
-  - []()
+  - [homogeneous coordinates](#homogeneous-coordinates)
+    - [why choose homogeneous coordinates?](#why-choose-homogeneous-coordinates?)
+    - [affine transformations](#affine-transformations)
+  - [2D transformations](#2d-transformations)
+    - [scale](#scale)
+    - [rotation](#rotation)
+    - [translation](#translation)
+  - [Composite transformation](#composite-transformation)
+    - [transform ordering matters](#transform-ordering-matters)
+    - [sequence of affine transforms](#sequence-of-affine-transforms)
+  - [Decomposing complex transforms](#decomposing-complex-transforms)
+    - [Example: How to rotate around a given point c?](#example-:-how-to-rotate-around-a-given-point-c?)
+    - [matrix representation](#matrix-representation)
+  - [3D transformations](#3d-transformations)
+    - [Using homogeneous coordinates again](#using-homogeneous-coordinates-again)
+    - [What's the order?](#what's-the-order?)
+    - [3D scale](#3d-scale)
+    - [3D translation](#3d-translation)
+    - [rotation around x-, y-, or z-axis](#rotation-around-x-, y-,-or-z-axis)
+    - [3D rotations](#3d-rotations)
+      - [Rodrigues' rotation formula](#rodrigues'-rotation-formula)
+  - [Viewing transformation](#viewing transformation)
+    - [what's view transformation?](#)
+    - [view / camera transformation](#view-/-camera-transformation)
+  - [Projection transformation](#projection-transformation)
+    - [Orthographic projection](#orthographic-projection)
+    - [Perspective projection](#perspective-projection)
+      - [How to do perspective projection?](#how-to-do-perspective-projection?)
+      - [How to get transformation?](#how-to-get-transformation?)
 - [Rasterization](#rasterzation)
+  - [Triangles](#triangels)
+    - [What's after MVP?](#what's-after-mvp?)
+  - [Drawing to raster displays](#drawing-to-raster-displays)
+    - [what pixel values approximate a triangle?](#what-pixel-values-approximate-a-triangle?)
+      - [a simple approach : sampling](#a-simple-approach-:-sampling)
+  - [Antialiasing and Z-Buffering](#antialiasing-and-z-buffering)
+    - [frequency domain](#frequency-domain)
+      - [fourier transform](#fourier-transform)
+      - [filtering = getting rid of certain frequency contents](#filtering-=-getting-rid-of-certain-frequency-contents)
+      - [filtering = convolution (= averaging)](#filtering-=-convolution-(=-averaging))
+  - [Convolution](#convolution)
+    - [Sampling = Repeating Frequency Contents](#sampling-=-repeating-frequency-contents)
+    - [Aliasing = Mixed Frequency Contents](#aliasing = mixed frequency contents)
+  - [Antialiasing](#antialiasing)
+    - [how can we reduce aliasing error?](#how-can-we-reduce-aliasing-error?)
+    - [antialiasing = Limiting, the repeating](#antialiasing-=-limiting-the-repeating)
+    - [antialiasing by averaging values in pixel area](#antialiasing-by-averaging-values-in-pixel-area)
+    - [Antialiasing By Supersampling (MSAA)](#antialiasing-by-supersampling-msaa)
+  - [Visibility / occlusion](#visibility-/-occlusion)
+    - [painter's algorithm](#painter's-algorithm)
+  - [Z-buffer](#z-buffer)
+    - [Z-buffer algorithm](#z-buffer-algorithm)
+    - [complexity](#complexity)
 - [Shading](#shading)
+  - [illumination, shading](#illumination-shading)
+    - [Definition](#definition)
+    - [A Sample Shading Model (Blinn-Phong Reflectance Model)](#a-sample-shading-model-blinn-phong-reflectance-model)
+      - [Perceptual observations](#perceptual-observations)
+      - [Shading is Local (at a specific shading point)](#shading-is-local-at-a-specific-shading-point)
+      - [Diffuse Reflection](#diffuse-reflection)
+        - [Lambertian (Diffuse) Shading](#lambertian-diffuse-shading)
+      - [Specular Term](#specular-term)
+        - [why there is a power "p"?](#why-there-is-a-power-p?)
+      - [Ambient Term](#ambient-term)
+      - [Blinn-Phong Reflection Model](#blinn-phong-reflection-model)
+    - [shading frequencies](#shading-frequencies)
+      - [shade each triangle (Flat shading)](#shade-each-triangle-flat-shading)
+      - [shade each vertex (Gouraud shading)](#shade-each-vertex-gouraud-shading)
+      - [shade each pixel (Phong shading)](#shade-each-pixel-phong-shading)
+      - [Defining Per-Vertex Normal Vectors](#defining-per-vertex-normal-vectors)
+  - [Graphics (Real-time Rendering) Pipeline](#graphics-real-time-rendering-pipeline)
+    - [shader programs](#shader-programs)
+    - [graphics pipeline implementation: GPUs - heterogeneous, multi-core processor](#graphics-pipeline-implementation-gpus)
+  - [Texture Mapping](#texture-mapping)
+    - [Surfaces are 2D](#surfaces-are-2d)
+    - [Interpolation Across Triangles: Barycentric Coordinates](#interpolation-across-triangles-barycentric-coordinates)
+    - [Applying Texture](#applying-texture)
+    - [Texture Magnification](#texture-magnification)
+      - [Easy case: What if the texture is too small?](#easy-case-what-if-the-texture-is-too-small)
+        - [Bilinear Interpolation](#bilinear-interpolation)
+      - [Hard case: What if the texture is too large?](#hard-case-what-if-the-texture-is-too-large)
+    - [Antialiasing: supersampling?](#antialiasing-supersampling)
+    - [Mipmap: Allowing (fast, approx, square) range queries](#mipmap-allowing-fast-approx-square-range-queries)
+      - [limitations](#limitations)
+    - [Anisotropic Filtering: fix mipmap's overblur](#anisotropic-filtering-fix-mipmap's-overblur)
+    - [Applications of textures](#applications-of-textures)
+      - [Bump Mapping](#bump-mapping)
+        - [How to perturb the normal (in flatland)](#how-to-perturb-the-normal-in-flatland)
+        - [How to perturb the normal (in 3D)](#how-to-perturb-the-normal-in-3d)
+      - [Displacement Mapping](#displacement-mapping)
 - [Geometry](#geometry)
+  - [Introduction](#introduction)
+  - [Implicit representations](#implicit-representations)
+    - [Algebraic Surfaces](#algebraic-surfaces)
+    - [Constructive Solid Geometry](#constructive-solid-geometry)
+    - [Distance Functions](#distance-functions)
+    - [Blending Distance Functions](#blending-distance-functions)
+    - [Level Set Methods](#level-set-methods)
+    - [Fractals](#fractals)
+    - [Pros & Cons](#pros-&-cons)
+  - [Explicit representations](#explicit-representations)
+    - [Point Cloud](#point-cloud)
+    - [Polygon Mesh](#polygon-mesh)
+    - [Curves](#curves)
+      - [Bezier Curves](#bezier-curves)
+        - [Evaluating Bezier Curves (de Casteljau Algorithm)](#evaluating-bezier-curves-de-casteljau-algorithm)
+        - [Evaluating Bezier Curves Algebraic Formula](#evaluating-bezier-curves-algebraic-formula)
+      - [Piecewise Bezier Curves](#piecewise-bezier-curves)
+        - [Continuity](#continuity)
+    - [Surfaces](#surfaces)
+      - [Evaluating Bezier Surfaces](#evaluating-bezier-surfaces)
+    - [Mesh operations](#mesh-operations)
+      - [Mesh subdivision (upsampling)](#mesh-subdivision-upsampling)
+        - [loop subdivision](#loop-subdivision)
+        - [catmull-clark subdivision](#catmull-clark-subdivision)
+      - [Mesh simplification (downsampling)](#mesh-simplification-downsampling)
+      - [Mesh regularization (same # of triangles)](#mesh-regularization-same-#-of-triangles)
+  - [Shadow Mapping](#shadow-mapping)
 - [Ray Tracing](#ray-tracing)
+  - [Basic Ray-Tracing Algorithm](#basic-ray-tracing-algorithm)
+    - [Ray-Surface Intersection](#ray-surface-intersection)
+  - [Accelerating Ray-Surface Intersection](#accelerating-ray-surface-intersection)
+    - [Bounding Volumes](#bounding-volumes)
+    - [Uniform Spatial Partitions (Grids)](#uniform-spatial-partitions-grids)
+    - [Spatial Partitions](#spatial-partitions)
+    - [Object Partitions & Bounding Volume Hierarchy (BVH)](#object-partitions-&-bounding-volume-hierarchy-BVH)
+  - [Basic radiometry](#basic-radiometry)
+    - [Radiant Energy and Flux (Power)](#radiant-energy-and-flux-power)
+    - [Radiant Intensity](#radiant-intensity)
+    - [Irradiance](#irradiance)
+    - [Radiance](#radiance)
+      - [Irradiance VS Radiance](#irradiance-vs-radiance)
+    - [Bidirectional Reflectance Distribution Function (BRDF)](#bidirectional-reflectance-distribution-function-BRDF)
+  - [Light transport](#light-transport)
+    - [Understanding the rendering equation](uUnderstanding-the-rendering-equation)
+  - [Global illumination](#global-illumination)
+  - [Monte Carlo Integration](#monte-carlo-integration)
+  - [Path tracing](#path-tracing)
 - [Materials and Appearances](#materials-and-appearances)
+  - [Material == BRDF](#material-==-brdf)
+  - [Microfacet Material](#microfacet-material)
+  - [Measuring BRDFs](#measuring-brdfs)
+- [Advanced Light Transport](#advanced-light-transport)
+  - [Unbiased light transport methods](#unbiased-light-transport-methods)
+  - [Biased light transport methods](#biased-light-transport-methods)
+  - [Instant radiosity (VPL / many light methods)](#instant-radiosity-vpl-/-many-light-methods)
 - [Advanced Appearance Modeling](#advanced-appearance-modeling)
+  - [Non-surface models](#non-surface-models)
+  - [Surface models](#surface-models)
+  - [Procedural appearance](#procedural-appearance)
 - [Cameras, Lenses and Light Fields](#cameras-lenses-and-light-fields)
+  - [Imaging = Synthesis + Capture](#imaging-=-synthesis-+-capture)
+  - [Pinhole Image Formation](#pinhole-image-formation)
+  - [Filed of View (FOV)](#filed-of-view-fov)
+  - [Exposure](#exposure)
+  - [Fast and Slow Photography](#fast-and-slow-photography)
+  - [Thin Lens Approximation](#thin-lens-approximation)
+  - [Defocus Blur](#defocus-blur)
+  - [Ray Tracing Ideal Thin Lenses](#ray-tracing-ideal-thin-lenses)
+  - [Depth of Field](#depth-of-field)
+  - [Light field / Lumigraph](#light-field-/-lumigraph)
+    - [Light Field Camera](#light-field-camera)
+  - [Color](#color)
+    - [What is color?](#what-is-color-?)
+      - [Physical Basis of Color](#physical-basis-of-color)
+      - [Biological Basis of Color](#biological-basis-of-color)
+    - [Color perception](#color-perception)
+      - [Tristimulus Theory of Color](#tristimulus-theory-of-color)
+      - [Metamerism (同色异谱)](#metamerism-同色异谱)
+    - [Color reproduction / matching](#color-reproduction-/-matching)
+    - [Color Space](#color-space)
+    - [Perceptually Organized Color Spaces](#perceptually-organized-color-spaces)
 - [Animation](#animation)
+  - [Historical Points in Animation](#historical-points-in-animation)
+  - [Keyframe Animation](#keyframe-animation)
+  - [Physical Simulation](#physical-simulation)
+  - [Particle Systems](#particle-systems)
+    - [Mass Spring System : Example of Modeling a Dynamic System](#mass-spring-system-example-of-modeling-a-dynamic-system)
+  - [Kinematics](#kinematics)
+    - [Forward Kinematics](#forward-kinematics)
+    - [Inverse Kinematics](#inverse-kinematics)
+  - [Rigging](#rigging)
+  - [Motion Capture](#motion-capture)
 - [Simulation](#simulation)
   - [Single particle simulation](#single-particle-simulation)
     - [Combating Instability](#combating-instability)
@@ -272,7 +442,7 @@ $$T(t_x,t_y)=\begin{pmatrix}1&0&t_x\\0&1&t_y\\0&0&1\end{pmatrix}$$
 
   **Note that matrices are applied right to left**
 
-#### sequence of affine transforms $A_1,A_2,A_3...$
+#### sequence of affine transforms
 
 - compose by matrix multiplication
 - $$A_n(...A_2(A_1(x)))=A_n...A_2\cdot A_1\cdot \begin{pmatrix}x\\y\\1\end{pmatrix}$$
@@ -306,11 +476,11 @@ $\begin{pmatrix}x'\\y'\\z'\\1\end{pmatrix}=\begin{pmatrix}a&b&c&t_x\\d&e&f&t_y\\
 
 linear first, then translation
 
-#### scale
+#### 3D scale
 
 $$S(s_x,s_y,s_z)=\begin{pmatrix}s_x&0&0&0\\0&s_y&0&0\\0&0&s_z&0\\0&0&0&1\end{pmatrix}$$
 
-#### translation
+#### 3D translation
 
 $$T(t_x,t_y,t_z)=\begin{pmatrix}1&0&0&t_x\\0&1&0&t_y\\0&0&1&t_z\\0&0&0&1\end{pmatrix}$$
 
@@ -919,7 +1089,9 @@ shading that does not depend on anything
 
 ![picture/微信截图_20220201003356](picture/微信截图_20220201003356.png)
 
-##### graphics pipeline implementation : GPUs - heterogeneous, multi-core processor
+##### graphics pipeline implementation: GPUs
+
+GPUs: heterogeneous, multi-core processor
 
 specialized processors for executing graphics pipeline computations
 
@@ -985,11 +1157,13 @@ How do we interpolate?
 
 ![picture/微信截图_20220201015732](picture/微信截图_20220201015732.png)
 
-#### Texture Magnification - Easy case  (What if the texture is too small?)
+#### Texture Magnification
+
+##### Easy case: What if the texture is too small?
 
 ![picture/微信截图_20220201015915](picture/微信截图_20220201015915.png)
 
-##### Bilinear Interpolation
+###### Bilinear Interpolation
 
 ![picture/微信截图_20220201020015](picture/微信截图_20220201020015.png)
 
@@ -1008,7 +1182,7 @@ at reasonable costs
 
 ![picture/微信截图_20220201020253](picture/微信截图_20220201020253.png)
 
-#### Texture Magnification - hard case (What if the texture is too large?)
+##### Hard case: What if the texture is too large?
 
 ![picture/微信截图_20220201020535](picture/微信截图_20220201020535.png)
 
@@ -1016,7 +1190,7 @@ at reasonable costs
 
 ![picture/微信截图_20220201020725](picture/微信截图_20220201020725.png)
 
-#### Antialiasing - supersampling?
+#### Antialiasing: supersampling?
 
 Will supersampling work?
 
@@ -1034,7 +1208,7 @@ Let's understand this problem in another way
 
 ![picture/微信截图_20220201021150](picture/微信截图_20220201021150.png)
 
-#### Mipmap - Allowing (fast, approx., square) range queries
+#### Mipmap: Allowing (fast, approx., square) range queries
 
 ![picture/微信截图_20220201021343](picture/微信截图_20220201021343.png)
 
@@ -1060,7 +1234,7 @@ Let's understand this problem in another way
 
 ![picture/微信截图_20220201022201](picture/微信截图_20220201022201.png)
 
-#### Anisotropic Filtering - fix mipmap's overblur
+#### Anisotropic Filtering: fix mipmap's overblur
 
 ![picture/微信截图_20220201022247](picture/微信截图_20220201022247.png)
 
@@ -1251,7 +1425,7 @@ applications:
 
 ![picture/微信截图_20220201164150](picture/微信截图_20220201164150.png)
 
-#### Piecewise Bezier Curves
+##### Piecewise Bezier Curves
 
 ![picture/微信截图_20220201164907](picture/微信截图_20220201164907.png)
 
@@ -1259,7 +1433,7 @@ applications:
 
 example: http://math.hws.edu/eck/cs424/notes2013/canvas/bezier.html
 
-##### Continuity
+###### Continuity
 
 ![picture/微信截图_20220201164933](picture/微信截图_20220201164933.png)
 
