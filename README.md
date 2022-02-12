@@ -33,17 +33,17 @@ Class link： https://sites.cs.ucsb.edu/~lingqi/teaching/games101.html
     - [transform ordering matters](#transform-ordering-matters)
     - [sequence of affine transforms](#sequence-of-affine-transforms)
   - [Decomposing complex transforms](#decomposing-complex-transforms)
-    - [Example: How to rotate around a given point c?](#example-:-how-to-rotate-around-a-given-point-c?)
+    - [Example: How to rotate around a given point c?](#example-:-how-to-rotate-around-a-given-point-c)
     - [matrix representation](#matrix-representation)
   - [3D transformations](#3d-transformations)
     - [Using homogeneous coordinates again](#using-homogeneous-coordinates-again)
     - [What's the order?](#what's-the-order?)
     - [3D scale](#3d-scale)
     - [3D translation](#3d-translation)
-    - [rotation around x-, y-, or z-axis](#rotation-around-x-, y-,-or-z-axis)
+    - [rotation around x-, y-, or z-axis](#rotation-around-x-y-or-z-axis)
     - [3D rotations](#3d-rotations)
       - [Rodrigues' rotation formula](#rodrigues'-rotation-formula)
-  - [Viewing transformation](#viewing transformation)
+  - [Viewing transformation](#viewing-transformation)
     - [what's view transformation?](#)
     - [view / camera transformation](#view-/-camera-transformation)
   - [Projection transformation](#projection-transformation)
@@ -56,7 +56,7 @@ Class link： https://sites.cs.ucsb.edu/~lingqi/teaching/games101.html
     - [What's after MVP?](#what's-after-mvp?)
   - [Drawing to raster displays](#drawing-to-raster-displays)
     - [what pixel values approximate a triangle?](#what-pixel-values-approximate-a-triangle?)
-      - [a simple approach : sampling](#a-simple-approach-:-sampling)
+      - [a simple approach: sampling](#a-simple-approach-sampling)
   - [Antialiasing and Z-Buffering](#antialiasing-and-z-buffering)
     - [frequency domain](#frequency-domain)
       - [fourier transform](#fourier-transform)
@@ -64,7 +64,7 @@ Class link： https://sites.cs.ucsb.edu/~lingqi/teaching/games101.html
       - [filtering = convolution (= averaging)](#filtering-=-convolution-(=-averaging))
   - [Convolution](#convolution)
     - [Sampling = Repeating Frequency Contents](#sampling-=-repeating-frequency-contents)
-    - [Aliasing = Mixed Frequency Contents](#aliasing = mixed frequency contents)
+    - [Aliasing = Mixed Frequency Contents](#aliasing-=-mixed-frequency-contents)
   - [Antialiasing](#antialiasing)
     - [how can we reduce aliasing error?](#how-can-we-reduce-aliasing-error?)
     - [antialiasing = Limiting, the repeating](#antialiasing-=-limiting-the-repeating)
@@ -484,7 +484,7 @@ $$S(s_x,s_y,s_z)=\begin{pmatrix}s_x&0&0&0\\0&s_y&0&0\\0&0&s_z&0\\0&0&0&1\end{pma
 
 $$T(t_x,t_y,t_z)=\begin{pmatrix}1&0&0&t_x\\0&1&0&t_y\\0&0&1&t_z\\0&0&0&1\end{pmatrix}$$
 
-#### rotation around x-, y-, or z-axis
+#### rotation around x, y, or z-axis
 
 ![picture/Screenshot from 2022-01-10 14-23-11](picture/Screenshot from 2022-01-10 14-23-11.png)
 
@@ -711,7 +711,7 @@ $$M_{viewport}=\begin{pmatrix}\frac{width}{2}&0&0&\frac{width}{2}\\0&\frac{heigh
 - input : position of triangle vertices projected on screen
 - output : set of pixel values approximating triangle
 
-###### a simple approach : sampling
+###### a simple approach: sampling
 
 evaluating a function at a point is sampling, we can discretize a function by sampling
 
