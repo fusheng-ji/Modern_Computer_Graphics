@@ -221,7 +221,7 @@ $$S(s_x,s_y)=\begin{pmatrix}s_x&0&0\\0&s_y&0\\0&0&1\end{pmatrix}$$
 
 #### rotation
 
-![picture/Screenshot from 2022-01-10 14-25-25](picture/Screenshot from 2022-01-10 14-25-25.png)
+![picture/Screenshot from 2022-01-10 14-25-25](picture/Screenshot-2022-01-10-14-25-25.png)
 
 $$R(\alpha)=\begin{pmatrix}cos\alpha& -sin\alpha &0\\sin\alpha & cos\alpha&0\\0&0&1\end{pmatrix}$$
 
@@ -283,7 +283,7 @@ $$T(t_x,t_y,t_z)=\begin{pmatrix}1&0&0&t_x\\0&1&0&t_y\\0&0&1&t_z\\0&0&0&1\end{pma
 
 #### rotation around x, y, or z-axis
 
-![picture/Screenshot from 2022-01-10 14-23-11](picture/Screenshot from 2022-01-10 14-23-11.png)
+![picture/Screenshot from 2022-01-10 14-23-11](picture/Screenshot-2022-01-10-14-23-11.png)
 
 $$R_x(\alpha)=\begin{pmatrix}1&0&0&0\\0&cos\alpha&-sin\alpha&0\\0&sin\alpha&cos\alpha&0\\0&0&0&1\end{pmatrix}$$
 
@@ -300,7 +300,7 @@ $$R_{xyz}(\alpha,\beta,\gamma)=R_x(\alpha)R_y(\beta)R_z(\gamma)$$
 - so-called Euler angles
 - often used in flight simulator : roll,pitch, yaw
 
-![picture/Screenshot from 2022-01-10 14-23-55](picture/Screenshot from 2022-01-10 14-23-55.png)
+![picture/Screenshot from 2022-01-10 14-23-55](picture/Screenshot-2022-01-10-14-23-55.png)
 
 ##### Rodrigues' rotation formula
 
@@ -310,9 +310,9 @@ $$R_{xyz}(\alpha,\beta,\gamma)=R_x(\alpha)R_y(\beta)R_z(\gamma)$$
 
 **prove**
 
-![picture/Screenshot from 2022-01-10 13-40-33](picture/Screenshot from 2022-01-10 13-40-33.png)
+![picture/Screenshot from 2022-01-10 13-40-33](picture/Screenshot-2022-01-10-13-40-33.png)
 
-![picture/Screenshot from 2022-01-10 13-40-40](picture/Screenshot from 2022-01-10 13-40-40.png)
+![picture/Screenshot from 2022-01-10 13-40-40](picture/Screenshot-2022-01-10-13-40-40.png)
 
 ### viewing transformation
 
@@ -334,7 +334,7 @@ $$R_{xyz}(\alpha,\beta,\gamma)=R_x(\alpha)R_y(\beta)R_z(\gamma)$$
   - look-at / gaze direction $\hat{g}$
   - up direction $\hat{t}$ (assuming perp. to look-at)
 
-![picture/Screenshot from 2022-01-10 14-24-26](picture/Screenshot from 2022-01-10 14-24-26.png)
+![picture/Screenshot from 2022-01-10 14-24-26](picture/Screenshot-2022-01-10-14-24-26.png)
 
 - key observation
   - if the camera and all objects move together, the "photo" will be the same
@@ -355,7 +355,7 @@ $$R_{xyz}(\alpha,\beta,\gamma)=R_x(\alpha)R_y(\beta)R_z(\gamma)$$
 
 ### projection transformation
 
-![picture/Screenshot from 2022-01-10 14-54-06](picture/Screenshot from 2022-01-10 14-54-06.png)
+![picture/Screenshot from 2022-01-10 14-54-06](picture/Screenshot-2022-01-10-14-54-06.png)
 
 #### orthographic projection
 
@@ -363,12 +363,12 @@ $$R_{xyz}(\alpha,\beta,\gamma)=R_x(\alpha)R_y(\beta)R_z(\gamma)$$
 - drop Z coordinate
 - translate and scale the resulting rectangle to $[-1,1]^2$
 
-![picture/Screenshot from 2022-01-10 14-58-31](picture/Screenshot from 2022-01-10 14-58-31.png)
+![picture/Screenshot from 2022-01-10 14-58-31](picture/Screenshot-2022-01-10-14-58-31.png)
 
 - in general, we want to map a cuboid $[l,r]\times [b,t]\times[f,n]$ to the "canonical" cube $[-1,1]^3$
   - if something nearer to us , z's value will be samller
 
-![picture/Screenshot from 2022-01-10 15-02-09](picture/Screenshot from 2022-01-10 15-02-09.png)
+![picture/Screenshot from 2022-01-10 15-02-09](picture/Screenshot-2022-01-10-15-02-09.png)
 
 - transformation matrix
 
@@ -383,7 +383,7 @@ $$R_{xyz}(\alpha,\beta,\gamma)=R_x(\alpha)R_y(\beta)R_z(\gamma)$$
 
 #### perspective projection
 
-![picture/Screenshot from 2022-01-10 15-10-45](picture/Screenshot from 2022-01-10 15-10-45.png)
+![picture/Screenshot from 2022-01-10 15-10-45](picture/Screenshot-2022-01-10-15-10-45.png)
 
 - most common projection
 - further objects are smaller
@@ -395,7 +395,7 @@ $$R_{xyz}(\alpha,\beta,\gamma)=R_x(\alpha)R_y(\beta)R_z(\gamma)$$
 - first "squish" the frustum into a cuboid (n->n, f->f) ($M_{persp->ortho}$)
 - do orthographic projection ($M_{ortho}$, already known!)
 
-![picture/Screenshot from 2022-01-10 15-15-29](picture/Screenshot from 2022-01-10 15-15-29.png)
+![picture/Screenshot from 2022-01-10 15-15-29](picture/Screenshot-2022-01-10-15-15-29.png)
 
 ##### how to get transformation?
 
@@ -403,7 +403,7 @@ $$R_{xyz}(\alpha,\beta,\gamma)=R_x(\alpha)R_y(\beta)R_z(\gamma)$$
 - $$y'=\frac{n}{z}y$$
 - $$x'=\frac{n}{z}x$$
 
-![picture/Screenshot from 2022-01-10 15-20-08](picture/Screenshot from 2022-01-10 15-20-08.png)
+![picture/Screenshot from 2022-01-10 15-20-08](picture/Screenshot-2022-01-10-15-20-08.png)
 
 - in homogeneous coordinates
 
@@ -452,12 +452,12 @@ $$R_{xyz}(\alpha,\beta,\gamma)=R_x(\alpha)R_y(\beta)R_z(\gamma)$$
 
   vertical field-of-view (fovY) and aspect ratio (assume symmetry i.e. l = -r, b = -t)
 
-![picture/Screenshot from 2022-01-10 15-48-57](picture/Screenshot from 2022-01-10 15-48-57.png)
+![picture/Screenshot from 2022-01-10 15-48-57](picture/Screenshot-2022-01-10-15-48-57.png)
 
 - how to convert from fovY and aspect to l,r,b,t?
   - trivial
 
-![picture/Screenshot from 2022-01-12 22-53-32](picture/Screenshot from 2022-01-12 22-53-32.png)
+![picture/Screenshot from 2022-01-12 22-53-32](picture/Screenshot-2022-01-12-22-53-32.png)
 
 #### what's after MVP?
 
