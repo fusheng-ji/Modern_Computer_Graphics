@@ -4,7 +4,7 @@ It's a notebook of games-101 which is instructed by Lingqi Yan
 
 ![微信截图_20220212021425](picture/微信截图_20220212021425.png)
 
-Class link： https://sites.cs.ucsb.edu/~lingqi/teaching/games101.html
+Class website： https://sites.cs.ucsb.edu/~lingqi/teaching/games101.html
 
 
 
